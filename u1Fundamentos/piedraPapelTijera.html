@@ -6,8 +6,23 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Juego Piedra Papel o Tijera</title>
+    <script>
+        // 1. piedra, 2 es papel y 3 es tiejera
+        let jugador = 0;
+        let pc = 2;
+        jugador = prompt("Elige una opción:\n 1. Para piedra\n 2. Para Papel\n 3. Para Tijera");
+        if(jugador === 1){
+            alert("Elegiste Piedra");
+        }else if(jugador ===2){
+            alert("Elegiste Papel");
+        }else if(jugador === 3){
+            alert("Elegiste Tijera");
+        }else{
+            alert("Elegiste PERDER!")
+        }
+    </script>
 </head>
 <body>
-
+    <h1>Piedra, Papel o Tijera</h1>
 </body>
 </html>
