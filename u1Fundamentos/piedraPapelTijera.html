@@ -7,18 +7,43 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Juego Piedra Papel o Tijera</title>
     <script>
+        // ----- FUNCTION ------
+        function aleatorio(min, max){
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+        function eleccion(jugada){
+            let resultado = "";
+            if(jugada === 1){
+                resultado = "Piedra";
+            }else if(jugada === 2){
+                resultado = "Papel";
+            }else if(jugada === 3){
+                resultado = "Tijera";
+            }else{
+                resultado = "MAL ELEGIDO";
+            }
+            return resultado;
+        }
         // 1. piedra, 2 es papel y 3 es tiejera
         let jugador = 0;
-        let pc = 2;
-        jugador = prompt("Elige una opción:\n 1. Para piedra\n 2. Para Papel\n 3. Para Tijera");
-        if(jugador === 1){
-            alert("Elegiste Piedra");
-        }else if(jugador ===2){
-            alert("Elegiste Papel");
-        }else if(jugador === 3){
-            alert("Elegiste Tijera");
+        let pc = aleatorio(1,3);
+        // player
+        jugador = parseInt(prompt("Elige una opción:\n 1. Para piedra\n 2. Para Papel\n 3. Para Tijera"));
+        //console.log(jugador);
+        alert("PC elige: " + eleccion(pc));
+        alert("Tu eliges " + eleccion(jugador));
+        // Combat
+        if(pc === jugador){
+            alert("Empate")
+        }else if(jugador === 1 && pc === 3){
+            alert("Ganaste")
+        }else if(jugador === 2 && pc === 1){
+            alert("Ganaste")
+        }else if(jugador === 3 && pc === 2){
+            alert("Ganaste")
         }else{
-            alert("Elegiste PERDER!")
+            alert("Perdiste")
         }
     </script>
 </head>
