@@ -6,11 +6,41 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mokepon</title>
+    <script src="js/pokepon.js"></script>
 </head>
 <body>
     <h1>MOKEPON!🔥💧🌱</h1>
-    <p>
-        <button>Fuego 🔥</button>
-    </p>
+    <section id="select-mascota">
+        <h2>Elige tu mascota:</h2>
+
+        <label for="hipodoge">Hipodego</label>
+        <input type="radio" name="mascota" id="hipodoge">
+
+        <label for="capipepo">Capipepo</label>
+        <input type="radio" name="mascota" id="capipepo">
+
+        <label for="ratigueya">Ratigueya</label>
+        <input type="radio" name="mascota" id="ratigueya">
+
+        <button id="btn-mascota">Seleccionar</button>
+    </section>
+    <section id="select-ataque">
+        <h2>Elige tu ataque:</h2>
+        <p>Tu mascota tiene <span>3</span> vidas</p>
+        <p>Las mascotsa del enemigo tienen <spán>3</spán> vidas</p>
+        <p>
+            <button id="btn-fuego">Fuego 🔥</button>
+            <button id="btn-agua">Agua 💧</button>
+            <button id="btn-tierra">Tierra 🌱</button>
+        </p>
+    </section>
+
+    <section id="mensajes">
+        <p>Tu mascota atacó con FUEGO, la mascota del enemigo atacó con TIERRA - GANASTE 🎉</p>
+    </section>
+
+    <section id="reiniciar">
+        <button id="btn-reiniciar">reiniciar</button>
+    </section>
 </body>
 </html>
