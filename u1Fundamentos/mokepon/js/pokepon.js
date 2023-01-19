@@ -5,13 +5,17 @@ function iniciarJuego(){
 function verificarMascota(mascota){
     return document.getElementById(mascota).checked;
 }
+
+function mascotaSelect(player, mascota){
+    return document.getElementById(player).innerHTML = mascota;
+}
 function seleccionarMascotaJugador(){
     if(verificarMascota("hipodoge")){
-        alert("Seleccionaste a Hipodoge");
+        mascotaSelect('mascota-jugador', 'hipodoge');
     } else if(verificarMascota("capipepo")){
-        alert("Seleccionaste a Capipepo");
+        mascotaSelect('mascota-jugador', 'capipepo');
     } else if(verificarMascota("ratigueya")){
-        alert("Seleccionate a la ratigueya");
+        mascotaSelect('mascota-jugador', 'ratigueya');
     } else{
         alert("Selecciona una mascota")
     }
