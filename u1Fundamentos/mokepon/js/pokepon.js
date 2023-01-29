@@ -28,7 +28,7 @@ function iniciarJuego(){
 
 function ataqueMascota(ataque){
     ataqueJugador = ataque;
-    alert(ataqueJugador); 
+    console.log(ataqueJugador); 
     ataqueRival();
 }
 
@@ -42,10 +42,15 @@ function ataqueRival(){
     }else{
         ataqueEnemigo = 'tierra';
     }
+    crearMensaje();
 }
-
+ //  mostar mensaje de los ataques seleccionados
 function crearMensaje(){
-    
+    let seccionMensaje = document.getElementById('mensajes');
+    //console.log(seccionMensaje);
+    let parrafo = document.createElement('p');
+    parrafo.innerHTML = 'Tu mascota ataco con ' + ataqueJugador + ', la mascota del enemigo ataco con ' + ataqueEnemigo + 'pendiente';
+    seccionMensaje.appendChild(parrafo);
 }
 
 function verificarMascota(mascota){
