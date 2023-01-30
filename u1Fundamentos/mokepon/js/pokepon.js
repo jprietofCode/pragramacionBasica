@@ -42,14 +42,27 @@ function ataqueRival(){
     }else{
         ataqueEnemigo = 'tierra';
     }
-    crearMensaje();
+    combate();
 }
- //  mostar mensaje de los ataques seleccionados
-function crearMensaje(){
+//  verificar que jugador gana
+function combate(){
+    let status = "";
+    if(ataqueEnemigo === ataqueJugador){
+        status = "EMPATE";
+    }else if ((ataqueJugador === 'fuego' && ataqueEnemigo === 'tierra') || (ataqueJugador === 'agua' && ataqueEnemigo === 'fuego') || (ataqueJugador === 'tierra' && ataqueEnemigo === 'agua')){
+        status = "GANASTE"
+    }else{
+        status = "PERDISTE"
+    }
+    crearMensaje(status);
+    //return status
+}
+//  mostar mensaje de los ataques seleccionados
+function crearMensaje(partida){
     let seccionMensaje = document.getElementById('mensajes');
     //console.log(seccionMensaje);
     let parrafo = document.createElement('p');
-    parrafo.innerHTML = 'Tu mascota ataco con ' + ataqueJugador + ', la mascota del enemigo ataco con ' + ataqueEnemigo + 'pendiente';
+    parrafo.innerHTML = 'Tu mascota ataco con ' + ataqueJugador + ', la mascota del enemigo ataco con ' + ataqueEnemigo + ' '+partida;
     seccionMensaje.appendChild(parrafo);
 }
 
