@@ -3,6 +3,7 @@ let ataqueEnemigo;
 let vidasJugador = 3;
 let vidasEnemigo = 3;
 let endGame;
+let condicion = true;
 
 function btnAtaque(id_Btn, ataque){
     return document.getElementById(id_Btn).addEventListener('click', ataqueMascota(ataque));
@@ -12,7 +13,13 @@ function desabilidarBtns(id_Btn){
     return document.getElementById(id_Btn).disabled = true;
 }
 
+function ocultarElementos(id_Btn, accion){
+    return document.getElementById(id_Btn).style.display = accion;
+}
+
 function iniciarJuego(){
+    ocultarElementos('select-ataque', 'none');
+    ocultarElementos('reiniciar', 'none');
     let botonMascotaJugador = document.getElementById('btn-mascota');
     botonMascotaJugador.addEventListener('click', seleccionarMascotaJugador);
 
@@ -115,6 +122,7 @@ function crearMensaje(partida){
         desabilidarBtns('btn-fuego');
         desabilidarBtns('btn-agua');
         desabilidarBtns('btn-tierra');
+        ocultarElementos('reiniciar', 'block');  // muestra el boton de reiniciar juego
     }
 }
 
@@ -126,18 +134,25 @@ function mascotaSelect(player, mascota){
     return document.getElementById(player).innerHTML = mascota;
 }
 
+function iniciarBatalla(){
+    selectMascotaEnemigo();
+    ocultarElementos('select-ataque', 'block');
+    ocultarElementos('select-mascota', 'none');
+}
+
 function seleccionarMascotaJugador(){
     if(verificarMascota("hipodoge")){
         mascotaSelect('mascota-jugador', 'hipodoge');
+        iniciarBatalla();
     } else if(verificarMascota("capipepo")){
         mascotaSelect('mascota-jugador', 'capipepo');
+        iniciarBatalla();
     } else if(verificarMascota("ratigueya")){
         mascotaSelect('mascota-jugador', 'ratigueya');
+        iniciarBatalla();
     } else{
         alert("Selecciona una mascota")
-    }
-
-    selectMascotaEnemigo();
+    } 
 }
 
 function selectMascotaEnemigo(){
