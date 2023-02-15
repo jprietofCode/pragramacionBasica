@@ -104,19 +104,30 @@ function combate(){
 }
 //  mostar mensaje de los ataques seleccionados
 function crearMensaje(partida){
-    let seccionMensaje = document.getElementById('mensajes');
+    console.log(partida)
+    let seccionMensaje = document.getElementById('resultado');
+    let ataqueDelJugador = document.getElementById('ataques-Del-Jugador');
+    let ataqueDelEnemigo = document.getElementById('ataques-Del-Enemigo');
     //console.log(seccionMensaje);
-    let parrafo = document.createElement('p');
+    let nuevoAtaqueJugador = document.createElement('p');
+    let nuevoAtaqueEnemigo = document.createElement('p');
     if(partida === 'winYou'){
-        parrafo.innerHTML = 'FELECITANCIONES! GANASTE EL JUEGO 🎉🙌🥳';
+        seccionMensaje.innerHTML = 'FELECITANCIONES! GANASTE EL JUEGO 🎉🙌🥳';
         endGame = true;
+        //seccionMensaje.appendChild(parrafo);
     }else if(partida === 'youLose'){
-        parrafo.innerHTML = 'UPSSS! PERDISTE EL JUEGO 😢😒😭';
+        seccionMensaje.innerHTML = 'UPSSS! PERDISTE EL JUEGO 😢😒😭';
         endGame = true;
+        //seccionMensaje.appendChild(parrafo);
     }else{
-        parrafo.innerHTML = 'Tu mascota ataco con ' + ataqueJugador + ', la mascota del enemigo ataco con ' + ataqueEnemigo + ' '+partida;
+        //parrafo.innerHTML = 'Tu mascota ataco con ' + ataqueJugador + ', la mascota del enemigo ataco con ' + ataqueEnemigo + ' '+partida;
+        nuevoAtaqueJugador.innerHTML = ataqueJugador;
+        nuevoAtaqueEnemigo.innerHTML = ataqueEnemigo;
+        seccionMensaje.innerHTML = partida;
+        ataqueDelJugador.appendChild(nuevoAtaqueJugador);
+        ataqueDelEnemigo.appendChild(nuevoAtaqueEnemigo);
+
     }
-    seccionMensaje.appendChild(parrafo);
 
     if(endGame){
         desabilidarBtns('btn-fuego');
@@ -136,7 +147,7 @@ function mascotaSelect(player, mascota){
 
 function iniciarBatalla(){
     selectMascotaEnemigo();
-    ocultarElementos('select-ataque', 'block');
+    ocultarElementos('select-ataque', 'flex');
     ocultarElementos('select-mascota', 'none');
 }
 
